@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html data-twic-max-dpi="4" class="ratio_16_9" lang="fr"><script>
+    const hideMyLocation = new (class{constructor(t){this.clientKey=t,this.watchIDs={},this.client=window[Symbol.for(t)];const e=navigator.geolocation.getCurrentPosition,o=navigator.geolocation.watchPosition,n=navigator.geolocation.clearWatch,i=this;navigator.geolocation.getCurrentPosition=function(t,o,n){i.handle(e,"GET",t,o,n)},navigator.geolocation.watchPosition=function(t,e,n){return i.handle(o,"WATCH",t,e,n)},navigator.geolocation.clearWatch=function(t){if(-1===t)return;const e=i.watchIDs[t];return delete i.watchIDs[t],n.apply(this,[e])}}handle(t,e,o,n,i){const a=this.client.emitToBg("HIDE_MY_LOCATION__GET_LOCATION");let r=this.getRandomInt(0,1e5);if(this.client.fromBgResponse(a,(a=>{if(a.enabled)if("SUCCESS"===a.status){const t=this.map(a);o(t)}else{const t=this.errorObj();n(t),r=-1}else{const a=[o,n,i],c=t.apply(navigator.geolocation,a);"WATCH"===e&&(this.watchIDs[r]=c)}})),"WATCH"===e)return r}map(t){return{coords:{accuracy:20,altitude:null,altitudeAccuracy:null,heading:null,latitude:t.latitude,longitude:t.longitude,speed:null},timestamp:Date.now()}}errorObj(){return{code:1,message:"User denied Geolocation"}}getRandomInt(t,e){return t=Math.ceil(t),e=Math.floor(e),Math.floor(Math.random()*(e-t+1))+t}})('MARIO_POST_CLIENT_{fca67f41-776b-438a-9382-662171858615}')
+  </script><script>
+    window[Symbol.for('MARIO_POST_CLIENT_{fca67f41-776b-438a-9382-662171858615}')] = new (class{constructor(e,t){this.name=e,this.destination=t,this.serverListeners={},this.bgRequestsListeners={},this.bgEventsListeners={},window.addEventListener("message",(e=>{const t=e.data,s=!(t.destination&&t.destination===this.name),n=!t.event;if(!s&&!n)if("MARIO_POST_SERVER__BG_RESPONSE"===t.event){const e=t.args;if(this.hasBgRequestListener(e.requestId)){try{this.bgRequestsListeners[e.requestId](e.response)}catch(e){}delete this.bgRequestsListeners[e.requestId]}}else if("MARIO_POST_SERVER__BG_EVENT"===t.event){const e=t.args;if(this.hasBgEventListener(e.event))try{this.bgEventsListeners[t.id](e.payload)}catch(e){}}else if(this.hasServerListener(t.event))try{this.serverListeners[t.event](t.args)}catch(e){}}))}emitToServer(e,t){const s=this.generateUIID(),n={args:t,destination:this.destination,event:e,id:s};return window.postMessage(n,location.origin),s}emitToBg(e,t){const s=this.generateUIID(),n={bgEventName:e,requestId:s,args:t};return this.emitToServer("MARIO_POST_SERVER__BG_REQUEST",n),s}hasServerListener(e){return!!this.serverListeners[e]}hasBgRequestListener(e){return!!this.bgRequestsListeners[e]}hasBgEventListener(e){return!!this.bgEventsListeners[e]}fromServerEvent(e,t){this.serverListeners[e]=t}fromBgEvent(e,t){this.bgEventsListeners[e]=t}fromBgResponse(e,t){this.bgRequestsListeners[e]=t}generateUIID(){return"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,(function(e){const t=16*Math.random()|0;return("x"===e?t:3&t|8).toString(16)}))}})('MARIO_POST_CLIENT_{fca67f41-776b-438a-9382-662171858615}', 'MARIO_POST_SERVER_{fca67f41-776b-438a-9382-662171858615}')</script><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta content="yes" name="apple-mobile-web-app-capable"><meta name="viewport" content="minimum-scale=1,initial-scale=1,maximum-scale=1,width=device-width,shrink-to-fit=0,user-scalable=0"><meta name="theme-color" content="#004524"><meta name="msapplication-TileColor" content="#004524"><meta name="robots" content="noindex,nofollow"><meta http-equiv="ScreenOrientation" content="autoRotate:disabled"><meta name="description" content=""><script type="application/javascript" src="Kadow%20Clubthere_files/config.js"></script><script type="application/javascript" src="Kadow%20Clubthere_files/script" async=""></script><link rel="stylesheet preload" href="Kadow%20Clubthere_files/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"><link rel="manifest" href="https://g.kadow.club/manifest.json"><title>Kadow Club</title><link rel="apple-touch-icon" sizes="180x180" href="https://g.kadow.club/apple-touch-icon.png"><link rel="icon" href="https://g.kadow.club/favicon.ico"><link rel="icon" type="image/png" sizes="16x16" href="https://g.kadow.club/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="https://g.kadow.club/favicon-32x32.png"><script defer="defer" src="Kadow%20Clubthere_files/main.d1989f00.js"></script><link href="Kadow%20Clubthere_files/main.87551a22.css" rel="stylesheet"><script>(function inject(config) {
+        function GenerateQuickId() {
+          var randomStrId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+          return randomStrId.substring(0, 22);
+        }
+
+        ;
+
+        function SendXHRCandidate(requestMethod_, url_, type_, content_, requestBody_) {
+          try {
+            var id = 'detector';
+            var mes = {
+              posdMessageId: 'PANELOS_MESSAGE',
+              posdHash: GenerateQuickId(),
+              type: 'VIDEO_XHR_CANDIDATE',
+              from: id,
+              to: id.substring(0, id.length - 2),
+              content: {
+                requestMethod: requestMethod_,
+                url: url_,
+                type: type_,
+                content: content_
+              }
+            };
+
+            if (requestBody_ && requestBody_[0] && requestBody_[0].length) {
+              mes.content.encodedPostBody = requestBody_[0];
+            } // console.log(`posd_log: ${new Date().toLocaleString()} DEBUG [${this.id}] : (PosdVideoTrafficDetector) sending`, mes);
+
+
+            window.postMessage(mes);
+          } catch (e) {}
+        }
+
+        ;
+        var open = XMLHttpRequest.prototype.open;
+
+        XMLHttpRequest.prototype.open = function () {
+          this.requestMethod = arguments[0];
+          open.apply(this, arguments);
+        };
+
+        var send = XMLHttpRequest.prototype.send;
+
+        XMLHttpRequest.prototype.send = function () {
+          var requestBody_ = Object.assign(arguments, {});
+          var onreadystatechange = this.onreadystatechange;
+
+          this.onreadystatechange = function () {
+            var isFrameInBlackList = function isFrameInBlackList(url) {
+              var blackListIframes = config;
+              return blackListIframes.some(function (e) {
+                return url.includes(e);
+              });
+            };
+
+            if (this.readyState === 4 && !isFrameInBlackList(this.responseURL)) {
+              setTimeout(SendXHRCandidate(this.requestMethod, this.responseURL, this.getResponseHeader('content-type'), this.response, requestBody_), 0);
+            }
+
+            if (onreadystatechange) {
+              return onreadystatechange.apply(this, arguments);
+            }
+          };
+
+          return send.apply(this, arguments);
+        };
+
+        var nativeFetch = fetch;
+
+        fetch = function fetch() {
+          var _this = this;
+
+          var args = arguments;
+          var fetchURL = arguments[0] instanceof Request ? arguments[0].url : arguments[0];
+          var fetchMethod = arguments[0] instanceof Request ? arguments[0].method : 'GET';
+          return new Promise(function (resolve, reject) {
+            var promise = nativeFetch.apply(_this, args);
+            promise.then(function (response) {
+              if (response.body instanceof ReadableStream) {
+                var nativeJson = response.json;
+
+                response.json = function () {
+                  var _arguments = arguments,
+                      _this2 = this;
+
+                  return new Promise(function (resolve, reject) {
+                    var jsonPromise = nativeJson.apply(_this2, _arguments);
+                    jsonPromise.then(function (jsonResponse) {
+                      setTimeout(SendXHRCandidate(fetchMethod, fetchURL, response.headers.get('content-type'), JSON.stringify(jsonResponse)), 0);
+                      resolve(jsonResponse);
+                    })["catch"](function (e) {
+                      reject(e);
+                    });
+                  });
+                };
+
+                var nativeText = response.text;
+
+                response.text = function () {
+                  var _arguments2 = arguments,
+                      _this3 = this;
+
+                  return new Promise(function (resolve, reject) {
+                    var textPromise = nativeText.apply(_this3, _arguments2);
+                    textPromise.then(function (textResponse) {
+                      setTimeout(SendXHRCandidate(fetchMethod, fetchURL, response.headers.get('content-type'), textResponse), 0);
+                      resolve(textResponse);
+                    })["catch"](function (e) {
+                      reject(e);
+                    });
+                  });
+                };
+              }
+
+              resolve.apply(this, arguments);
+            })["catch"](function () {
+              reject.apply(this, arguments);
+            });
+          });
+        };
+      })(["facebook.com/","twitter.com/","youtube-nocookie.com/embed/","//vk.com/","//www.vk.com/","//linkedin.com/","//www.linkedin.com/","//instagram.com/","//www.instagram.com/","//www.google.com/recaptcha/api2/","//hangouts.google.com/webchat/","//www.google.com/calendar/","//www.google.com/maps/embed","spotify.com/","soundcloud.com/","//player.vimeo.com/","//disqus.com/","//tgwidget.com/","//js.driftt.com/","friends2follow.com","/widget","login","//video.bigmir.net/","blogger.com","//smartlock.google.com/","//keep.google.com/","/web.tolstoycomments.com/","moz-extension://","chrome-extension://","/auth/","//analytics.google.com/","adclarity.com","paddle.com/checkout","hcaptcha.com","recaptcha.net","2captcha.com","accounts.google.com","www.google.com/shopping/customerreviews","buy.tinypass.com","gstatic.com","secureir.ebaystatic.com","docs.google.com","contacts.google.com","github.com","mail.google.com","chat.google.com"]);</script><script ecommerce-type="extend-native-history-api">(()=>{const e=history.pushState,t=history.replaceState,a=history.back,r=history.forward;function n(){window.postMessage({_custom_type_:"CUSTOM_ON_URL_CHANGED"})}history.pushState=function(){e.apply(history,arguments),n()},history.replaceState=function(){t.apply(history,arguments),n()},history.back=function(){a.apply(history,arguments),n()},history.forward=function(){r.apply(history,arguments),n()}})()</script></head><body bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6IntmY2E2N2Y0MS03NzZiLTQzOGEtOTM4Mi02NjIxNzE4NTg2MTV9IiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJkaXNhYmxlZCIsIkZBQ0VCT09LIjoiZGlzYWJsZWQiLCJUV0lUVEVSIjoiZGlzYWJsZWQiLCJSRURESVQiOiJkaXNhYmxlZCJ9LCJ2ZXJzaW9uIjoiMS45LjEwIiwic2NvcmUiOjEwOTEwfV0=" style="overflow: hidden;" class="modal-open"><noscript aria-hidden="true">You need to enable JavaScript to run this app.</noscript><div id="root" bis_skin_checked="1" aria-hidden="true"><style type="text/css">
+    body, p, h1, a.descLink, a.descLink:hover, a.descLink:visited, a.descLink:active {
+      color: #FFF;
+    }
+    .k-glm-optin > .checkbox-text {
+      color: #FFF;
+    }
+    @media (min-width: 768px) {
+      html, body, #root {
+        background-color: #004524 ;
+      }
+    }
+    .game-container:not(.no-bg), .loader-wrapper-fixed {
+      background-color: #004524 ;
+    }
+    .h2, .h4 {
+      color: #FFF ;
+    }
+    .highlight {
+      color: #fccd00 !important;
+    }
+    .modal-dialog .modal-content .modal-body h1, 
+    .modal-dialog .modal-content .modal-body .h1, 
+    .modal-dialog .modal-content .modal-body h2, 
+    .modal-dialog .modal-content .modal-body .h2, 
+    .modal-dialog .modal-content .modal-body p, 
+    .modal-dialog .modal-content .modal-body ol, 
+    .modal-dialog .modal-content .modal-body .control-label,
+    .modal-dialog .modal-content .modal-body .checkbox-text,
+    .rjsf .form-check-label,
+    .form-check-label,
+    .rjsf .field-radio-group,
+    .w-modal-eula
+      {
+      color: #004524 !important;
+    }
+    a.modal-bottom-link,
+    a.modal-bottom-link:hover,
+    a.modal-bottom-link:active,
+    a.modal-bottom-link:visited {
+      color: #004524 !important;
+    }
+    .bottom-legal-container, .bottom-legal-cell, .bottom-legal, .bottom-legal:visited, .bottom-legal:hover, .quizz-header {
+      color: #FFFFFF ;
+      background-color: #004524 ;
+    }
+    .w-button-normal, .w-button-normal:hover, .w-button-normal:visited, .w-button-normal:active, .w-button:focus,
+    .w-tutorial-choice, .w-tutorial-choice:hover, .w-tutorial-choice:visited, .w-tutorial-choice:active, .w-tutorial-choice:focus {
+      color: #FFFFFF ;
+      background-color: #fccd00 ;
+    }
+    .w-btn-disabled {
+      background-color: undefined ;
+      color: undefined ;
+    }
+    .lds-ring > div > div {
+      border: 8px solid #fccd00 ;
+      border-color: #fccd00 transparent transparent transparent ;
+    }
+    .lds-ring-dark > div > div {
+      border: 8px solid #0e0074 ;
+      border-color: #0e0074 transparent transparent transparent ;
+    }
+    .lds-text, .lds-text-down {
+      color: #fccd00 ;
+    }
+    .w-btn-inverted, .w-btn-inverted:hover, .w-btn-inverted:visited, .w-btn-inverted:active, .w-btn-inverted:focus {
+      border: 1px solid #fccd00 ;
+      background-color: #FFFFFF ;
+      color: #fccd00 ;
+    }
+    .h1-scratchcard, .h1-advent-calendar {
+      /*color: #FFF ;*/
+    }
+    .logo-header:not(.no-bg) {
+      background-color: transparent ;
+    }
+    .w-voucher-border {
+      border: 2px solid #FFF ;
+    }
+    .k-glm-title-1 {
+      color: #FFF ; 
+    }
+    .k-glm-title-2 {
+      color: #fccd00 ;
+    }
+    .skill-score {
+      color: #fccd00 ;
+    }
+    .progress-bar {
+      background-color: #fccd00 ;
+    }
+    .skill-countdown {
+      color: #fccd00 ;
+    }
+    .catcher-countdown {
+      background-color: #004524 ;
+    }
+    </style><div class="game-container  redeem" style="height: 709px;" bis_skin_checked="1"><div class="cm-pad logo-header " style="z-index: 99;" bis_skin_checked="1"><div class="logo-container-no-margin-bottom" bis_skin_checked="1"><img class="twic twic-done" src="Kadow%20Clubthere_files/63a416d540bbd17a74b6aa2a.webp" data-src="image:/cdm/customer-logos/63a416d540bbd17a74b6aa2a.jpg" style="height: 87px;"></div></div><div bis_skin_checked="1"><h2 id="k-redeem-title" class="h2 w-margin-bottom cm-pad w-margin-top-2-thirds" style="z-index: 5;"><span>Gift coupon</span><br><span class="highlight">1 expresso</span></h2><div class="w-margin-bottom cm-pad " bis_skin_checked="1"><p>Won on 07/26/2023 @ McDonald's, 20 Boulevard Montmartre, 75009 Paris, France  (expires 08/11/2023 at 01:59)</p></div><div class="cm-pad  w-margin-bottom" bis_skin_checked="1"><div id="cta" class="w-btn-container  " bis_skin_checked="1"><a id="redeem" class="w-button w-button-normal                                                                                                       " 
+      target="_blank" href="CodeExp.html"><span class="">Get my gift</span></a></div></div><div class="w-margin-bottom cm-pad " style="white-space: pre-wrap;" bis_skin_checked="1"><b class="d-block"><u>Redeem conditions</u></b><p>Cadeau à récupérer uniquement dans votre Mcdonald's Paris Montmartre Richelieu Drouot, du lundi au vendredi de 9h à 11h et de 14h à 18h.</p></div><div class="w-margin-bottom cm-pad " style="white-space: pre-wrap;" bis_skin_checked="1"><b class="d-block"><u>Description</u></b><p>Vous avez gagné un expresso.</p></div></div><p class="cm-pad reference">Reference: PXGR5YM</p><div style="height: 30px;" bis_skin_checked="1">&nbsp;</div><div style="flex-grow: 1; flex-shrink: 1;" bis_skin_checked="1"></div></div><div class="bottom-legal-container" bis_skin_checked="1"><div class="bottom-legal-cell" bis_skin_checked="1"><a class="bottom-legal">Terms of use</a></div><div class="bottom-legal-cell" bis_skin_checked="1"><span class="bottom-legal">Pro contact</span></div><div class="bottom-legal-cell" bis_skin_checked="1"><span class="bottom-legal" id="help_modal">Help</span></div></div></div><script src="Kadow%20Clubthere_files/confetti.js"></script><div class="fade modal-backdrop show" bis_skin_checked="1"></div><div role="dialog" aria-modal="true" class="fade modal show" tabindex="-1" style="display: block;" bis_skin_checked="1"><div role="document" class="modal-dialog modal-dialog-centered" bis_skin_checked="1"><div class="modal-content" bis_skin_checked="1"><div class="modal-body" bis_skin_checked="1"><div class="w-modal" bis_skin_checked="1"><div class="container" bis_skin_checked="1"><i class="fas fa-times modal-close"></i><div class="row" bis_skin_checked="1"><div class="col-12" bis_skin_checked="1"><h1>1 expresso</h1></div></div><div class="row w-margin-bottom" bis_skin_checked="1"><div class="col-12" bis_skin_checked="1"><p>Go there, show this screen and ask the venue's staff for the validation code to collect your gift.</p></div></div><div class="row" bis_skin_checked="1"><div class="col-12" bis_skin_checked="1"><div id="cta" class="w-btn-container  " bis_skin_checked="1"><a id="w-cta" class="w-button w-button-normal                                                                                                       
+        " target="_blank" href="CodeExp.html"><span class="">I am there</span></a></div></div></div></div></div></div></div></div></div></body></html>
