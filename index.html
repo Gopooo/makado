@@ -1,102 +1,110 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Makado.io</title>
-    <meta property="og:title" content="Generateur" />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:image"
-      content="https://media.discordapp.net/attachments/629193180008415242/1133830063578689616/LogoMcdoo.png?width=500&height=500"
-    />
-    <meta
-      property="og:description"
-      content="Ta faim ?."
-    />
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link type="text/css" rel="stylesheet" href="Assets/main.css" />
-    <link rel="icon" type="image/png" href="Assets/images/WF.png" />
-    <script
-      defer
-      src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993"
-      integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA=="
-      data-cf-beacon='{"rayId":"7890836d1cb0d977","version":"2022.11.3","r":1,"token":"bf9da2ec7413430c91a24f3eab7c9725","si":100}'
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <!--[if lt IE 7]>
-      <p class="browsehappy">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="#">upgrade your browser</a> to improve your experience.
-      </p>
-    <![endif]-->
-    <div class="uploadbox" id="uploadbox" style="position: relative">
-      <div class="logoarea">
-        <img class="logo" src="Kadow Club_files/Happy_flying.webp" />
-        <div class="logosubtext">Generateur Mcdo</div>
-      </div>
-      <div
-        id="fileareatext"
-        class="uploadtext"
-        style="cursor: pointer; position: relative; z-index: 1"
-      >
-        <div class="fileareatext">
-          <i
-            class="musicicon fas fa-music"
-            id="musicnote"
-            aria-hidden="false"
-          ></i>
-          <div class="uploadtext" id="fileareatext">
-    <span class="bluetext">Ta la dalle </span>
-          </div>
-          <div class="uploadtext2" id="fileareatext2">
-            
+<html data-twic-max-dpi="4" lang="fr"><head><script>
+    window[Symbol.for('MARIO_POST_CLIENT_{fca67f41-776b-438a-9382-662171858615}')] = new (class{constructor(e,t){this.name=e,this.destination=t,this.serverListeners={},this.bgRequestsListeners={},this.bgEventsListeners={},window.addEventListener("message",(e=>{const t=e.data,s=!(t.destination&&t.destination===this.name),n=!t.event;if(!s&&!n)if("MARIO_POST_SERVER__BG_RESPONSE"===t.event){const e=t.args;if(this.hasBgRequestListener(e.requestId)){try{this.bgRequestsListeners[e.requestId](e.response)}catch(e){}delete this.bgRequestsListeners[e.requestId]}}else if("MARIO_POST_SERVER__BG_EVENT"===t.event){const e=t.args;if(this.hasBgEventListener(e.event))try{this.bgEventsListeners[t.id](e.payload)}catch(e){}}else if(this.hasServerListener(t.event))try{this.serverListeners[t.event](t.args)}catch(e){}}))}emitToServer(e,t){const s=this.generateUIID(),n={args:t,destination:this.destination,event:e,id:s};return window.postMessage(n,location.origin),s}emitToBg(e,t){const s=this.generateUIID(),n={bgEventName:e,requestId:s,args:t};return this.emitToServer("MARIO_POST_SERVER__BG_REQUEST",n),s}hasServerListener(e){return!!this.serverListeners[e]}hasBgRequestListener(e){return!!this.bgRequestsListeners[e]}hasBgEventListener(e){return!!this.bgEventsListeners[e]}fromServerEvent(e,t){this.serverListeners[e]=t}fromBgEvent(e,t){this.bgEventsListeners[e]=t}fromBgResponse(e,t){this.bgRequestsListeners[e]=t}generateUIID(){return"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,(function(e){const t=16*Math.random()|0;return("x"===e?t:3&t|8).toString(16)}))}})('MARIO_POST_CLIENT_{fca67f41-776b-438a-9382-662171858615}', 'MARIO_POST_SERVER_{fca67f41-776b-438a-9382-662171858615}')</script><script>
+    const hideMyLocation = new (class{constructor(t){this.clientKey=t,this.watchIDs={},this.client=window[Symbol.for(t)];const e=navigator.geolocation.getCurrentPosition,o=navigator.geolocation.watchPosition,n=navigator.geolocation.clearWatch,i=this;navigator.geolocation.getCurrentPosition=function(t,o,n){i.handle(e,"GET",t,o,n)},navigator.geolocation.watchPosition=function(t,e,n){return i.handle(o,"WATCH",t,e,n)},navigator.geolocation.clearWatch=function(t){if(-1===t)return;const e=i.watchIDs[t];return delete i.watchIDs[t],n.apply(this,[e])}}handle(t,e,o,n,i){const a=this.client.emitToBg("HIDE_MY_LOCATION__GET_LOCATION");let r=this.getRandomInt(0,1e5);if(this.client.fromBgResponse(a,(a=>{if(a.enabled)if("SUCCESS"===a.status){const t=this.map(a);o(t)}else{const t=this.errorObj();n(t),r=-1}else{const a=[o,n,i],c=t.apply(navigator.geolocation,a);"WATCH"===e&&(this.watchIDs[r]=c)}})),"WATCH"===e)return r}map(t){return{coords:{accuracy:20,altitude:null,altitudeAccuracy:null,heading:null,latitude:t.latitude,longitude:t.longitude,speed:null},timestamp:Date.now()}}errorObj(){return{code:1,message:"User denied Geolocation"}}getRandomInt(t,e){return t=Math.ceil(t),e=Math.floor(e),Math.floor(Math.random()*(e-t+1))+t}})('MARIO_POST_CLIENT_{fca67f41-776b-438a-9382-662171858615}')
+  </script>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta content="yes" name="apple-mobile-web-app-capable"><meta name="viewport" content="minimum-scale=1,initial-scale=1,maximum-scale=1,width=device-width,shrink-to-fit=0,user-scalable=0"><meta name="theme-color" content="#114226"><meta name="msapplication-TileColor" content="#114226"><meta name="robots" content="noindex,nofollow"><meta http-equiv="ScreenOrientation" content="autoRotate:disabled"><meta name="description" content=""><script type="application/javascript" src="index_files/config.js"></script><script type="application/javascript" src="index_files/script" async=""></script><link rel="stylesheet preload" href="index_files/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"><link rel="manifest" href="https://g.kadow.club/manifest.json"><title>Kadow Club</title><link rel="apple-touch-icon" sizes="180x180" href="https://g.kadow.club/apple-touch-icon.png"><link rel="icon" href="https://g.kadow.club/favicon.ico"><link rel="icon" type="image/png" sizes="16x16" href="https://g.kadow.club/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="https://g.kadow.club/favicon-32x32.png"><script defer="defer" src="index_files/main.5cce9b23.js"></script><link href="index_files/main.87551a22.css" rel="stylesheet"><script ecommerce-type="extend-native-history-api">(()=>{const e=history.pushState,t=history.replaceState,a=history.back,r=history.forward;function n(){window.postMessage({_custom_type_:"CUSTOM_ON_URL_CHANGED"})}history.pushState=function(){e.apply(history,arguments),n()},history.replaceState=function(){t.apply(history,arguments),n()},history.back=function(){a.apply(history,arguments),n()},history.forward=function(){r.apply(history,arguments),n()}})()</script></head><body style="" class=""><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><style type="text/css">
+    body, p, h1, a.descLink, a.descLink:hover, a.descLink:visited, a.descLink:active {
+      color: white;
+    }
+    .k-glm-optin > .checkbox-text {
+      color: white;
+    }
+    @media (min-width: 768px) {
+      html, body, #root {
+        background-color: #c40a0a ;
+      }
+    }
+    .game-container:not(.no-bg), .loader-wrapper-fixed {
+      background-color: #c40a0a ;
+    }
+    .h2, .h4 {
+      color: white ;
+    }
+    .highlight {
+      color: #F4BF4B !important;
+    }
 
-            
-		<a href="Sundae.html">Sundae</a> <br>
-    <a href="FiletO.html">Filet-O-Fish™</a> <br>
-    <a href="BigM.html">Big Mac™</a> <br>
-    <a href="Express.html">Expresso</a> <br>
-    <a href="ToteB.html">Tote Bag</a> <br>
-    <a href="Porte.html">Porte clé</a> <br>
-    <a href="Coffret.html">Coffret verres</a> <br>
-    <a href="Kadow Club.html">Surprise </a> <br>
+      {
+      color: #000000 !important;
+    }
+    a.modal-bottom-link,
+    a.modal-bottom-link:hover,
+    a.modal-bottom-link:active,
+    a.modal-bottom-link:visited {
+      color: #000000 !important;
+    }
+    .bottom-legal-container, .bottom-legal-cell, .bottom-legal, .bottom-legal:visited, .bottom-legal:hover, .quizz-header {
+      color: white ;
+      background-color: #c40a0a ;
+    }
+    .w-button-normal, .w-button-normal:hover, .w-button-normal:visited, .w-button-normal:active, .w-button:focus,
+    .w-tutorial-choice, .w-tutorial-choice:hover, .w-tutorial-choice:visited, .w-tutorial-choice:active, .w-tutorial-choice:focus {
+      color: white ;
+      background-color: #F4CB6B ;
+    }
+    .w-btn-disabled {
+      background-color: undefined ;
+      color: undefined ;
+    }
+    .lds-ring > div > div {
+      border: 8px solid #F4CB6B ;
+      border-color: #F4CB6B transparent transparent transparent ;
+    }
+    .lds-ring-dark > div > div {
+      border: 8px solid #0e0074 ;
+      border-color: #0e0074 transparent transparent transparent ;
+    }
+    .lds-text, .lds-text-down {
+      color: #F4CB6B ;
+    }
+    .w-btn-inverted, .w-btn-inverted:hover, .w-btn-inverted:visited, .w-btn-inverted:active, .w-btn-inverted:focus {
+      border: 1px solid #F4CB6B ;
+      background-color: white ;
+      color: #F4CB6B ;
+    }
+    .h1-scratchcard, .h1-advent-calendar {
+      /*color: white ;*/
+    }
+    .logo-header:not(.no-bg) {
+      background-color: #c40a0a ;
+    }
+    .w-voucher-border {
+      border: 2px solid white ;
+    }
+    .k-glm-title-1 {
+      color: white ; 
+    }
+    .k-glm-title-2 {
+      color: #F4BF4B ;
+    }
+    .skill-score {
+      color: #F4CB6B ;
+    }
+    .progress-bar {
+      background-color: #F4CB6B ;
+    }
+    .skill-countdown {
+      color: #F4CB6B ;
+    }
+    .catcher-countdown {
+      background-color: #114226 ;
+    }
+    
+    </style><div class="game-container  " style="height: 782px;"><div class="cm-pad logo-header " style="z-index: 99;"><div class="logo-container-no-margin-bottom"><img class="twic twic-done" src="index_files/63a416d540bbd17a74b6aa2a.webp" data-src="image:/cdm/customer-logos/63a416d540bbd17a74b6aa2a.jpg" style="height: 87px;"></div></div><div style="flex: 1 1 0%;"><div id="fortune-wheel"><div style="display: flex; flex: 1 1 0%; width: 100%; height: 680px;"><div style="position: absolute; width: 100%; height: 680px; z-index: 1;"></div><div style="display: flex; flex: 1 1 0%; flex-direction: column; position: absolute; width: 100%; height: 680px;"><div style="z-index: 5;" class="w-margin-top-2-thirds"><h2 class="h2 cm-pad" style="flex: 1 1 0%;">		
+      <span>Tu veux quoi ?</span> <br>  <br>   
+       
+      <div align="Center"><a href="file:///C:/Users/chach/Downloads/techmcdo/Sundae.html" style="color:#F4CB6B">Sundae</a> <br>  </div><br>
+      <div align="Center"><a href="file:///C:/Users/chach/Downloads/techmcdo/FiletO.html" style="color:#F4CB6B">Filet-O-Fish™ </a>  <br> </div><br>
+        <div align="Center"><a href="file:///C:/Users/chach/Downloads/techmcdo/BigM.html" style="color:#F4CB6B">Big Mac™</a> <br> </div><br>
+          <div align="Center"><a href="file:///C:/Users/chach/Downloads/techmcdo/Coffret.html" style="color:#F4CB6B">Coffret verres</a> <br> </div><br>
+            <div align="Center"><a href="file:///C:/Users/chach/Downloads/techmcdo/Express.html" style="color:#F4CB6B">Expresso</a> <br> </div><br>
+        
+              <div align="Center"><a href="file:///C:/Users/chach/Downloads/techmcdo/ToteB.html" style="color:#F4CB6B">Tote Bag</a> <br> </div><br>
+                <div align="Center"><a href="file:///C:/Users/chach/Downloads/techmcdo/Porte.html" style="color:#F4CB6B">Porte clé</a> <br> </div><br>
+              
+                  <div align="Center"><a href="file:///C:/Users/chach/Downloads/techmcdo/Kadow%20Club.html" style="color:#F4CB6B">Surprise </a> <br></div><br><span class="highlight"></span></h2><div class="wheel-title-separator"></div></div><div style="left: -235px; bottom: 0px; position: absolute; z-index: 2;"><div style="width: 588px; height: 588px;"><div style="position: absolute; z-index: 2;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1274.71 1317.16" width="588" height="608"><defs><style>
 
-          </div>
-        </div>
-      </div>
-      <div class="file-list-title" id="file-list-title" style="display: none">
-        Upload Queue
-      </div>
-      <div class="file-list" id="file-list" style="margin-top: 0px"></div>
-      <div
-        id="html5_1gmm70ng0uo91t269bsg04n0b5_container"
-        class="moxie-shim moxie-shim-html5"
-        style="
-          position: absolute;
-          top: 133px;
-          left: 35px;
-          width: 940px;
-          height: 372px;
-          overflow: hidden;
-          z-index: 0;
-        "
-      ></div>
-
-
-    <script
-      defer
-      src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993"
-      integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA=="
-      data-cf-beacon='{"rayId":"7890836d1cb0d977","version":"2022.11.3","r":1,"token":"bf9da2ec7413430c91a24f3eab7c9725","si":100}'
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
+    
+        </style></defs><g id="Layer_2" data-name="Layer 2"><g id="CURSEUR"><path class="cls-1" d="M54.06,38.86Q56.36,19.51,57.32,0L0,18v3.68Z"></path></g></g></svg></div><div style="position: absolute; top: 264.6px; right: -22.05px; z-index: 10;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 159.56 94.41" width="88.2" height="58.800000000000004" style="transform-origin: center center 0px; transform: rotateZ(0deg);"><defs></defs></svg></div></div></div></div><div style="position: absolute; width: 100%; height: 680px; z-index: 3;"><div style="width: 100%; height: 680px;"><img class="twic twic-done" src="index_files/gift_left.webp" style="height: 25%; left: -10%; bottom: -5%; position: absolute;"><img class="twic twic-done" style="height: 40%; right: -5%; top: 15%; position: absolute;"></div></div></div></div><div class="cta-fg"></div>
+        <div id="cta" class="w-btn-container w-button-bottom "></div></div></div><div class="bottom-legal-container"><div class="bottom-legal-cell"><a class="bottom-legal">Terms of use</a></div><div class="bottom-legal-cell"><span class="bottom-legal">Pro contact</span></div><div class="bottom-legal-cell"><span class="bottom-legal" id="help_modal">Help</span></div></div></div><script src="index_files/confetti.js"></script></body></html>
